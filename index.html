@@ -7,65 +7,218 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Light Theme - Warm Modernist */
         :root {
-            --r-main-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --r-heading-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --r-main-font-size: 32px;
-            --r-heading-color: #2c3e50;
-            --r-main-color: #333;
-            --r-link-color: #2980b9;
-            --r-link-color-hover: #3498db;
+            --bg-primary: #FDFBF7;          /* warm off-white */
+            --bg-secondary: #F7F4EE;        /* subtle cream */
+            --text-primary: #2B2B2B;        /* charcoal */
+            --text-secondary: #5A5A5A;      /* medium gray */
+            --accent-primary: #C17B5C;      /* terracotta/rust */
+            --accent-secondary: #8B7355;    /* warm wood */
+            --accent-tertiary: #D4A574;     /* muted gold */
+            --callout-bg: #FFFFFF;          /* pure white for contrast */
+            --callout-border: #3D3D3D;      /* dark charcoal, not pure black */
+            
+            --r-main-font: 'Lora', Georgia, serif;
+            --r-heading-font: 'Montserrat', 'Helvetica Neue', sans-serif;
+            --r-main-font-size: 30px;
+            --r-heading-color: var(--text-primary);
+            --r-main-color: var(--text-primary);
+            --r-link-color: var(--accent-primary);
+            --r-link-color-hover: var(--accent-secondary);
+            --r-background-color: var(--bg-primary);
         }
         
-        .reveal h1 { font-size: 2em; font-weight: 600; margin-bottom: 0.5em; }
-        .reveal h2 { font-size: 1.5em; font-weight: 600; margin-bottom: 0.4em; }
-        .reveal h3 { font-size: 1.2em; font-weight: 600; margin-bottom: 0.3em; }
-        .reveal p, .reveal li { font-size: 0.85em; line-height: 1.4; }
-        .reveal ul { margin-left: 0; }
-        .reveal li { margin-bottom: 0.4em; }
+        /* Dark Theme - Midnight Blue */
+        body.dark-theme {
+            --bg-primary: #0A1628;          /* midnight blue */
+            --bg-secondary: #152238;        /* lighter midnight */
+            --text-primary: #F4EFE6;        /* warm cream */
+            --text-secondary: #C4BDB1;      /* muted cream */
+            --accent-primary: #D4A574;      /* warm gold */
+            --accent-secondary: #E8B887;    /* lighter gold for better visibility */
+            --accent-tertiary: #C17B5C;     /* copper */
+            --callout-bg: #1A2B42;          /* deep blue */
+            --callout-border: #D4A574;      /* gold */
+        }
         
-        .slide-number { font-size: 14px; }
+        .reveal {
+            background-color: var(--bg-primary);
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
         
+        .reveal h1 { 
+            font-size: 2.2em; 
+            font-weight: 600; 
+            margin-bottom: 0.5em; 
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .reveal h2 { 
+            font-size: 1.6em; 
+            font-weight: 600; 
+            margin-bottom: 0.4em; 
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+        
+        .reveal h3 { 
+            font-size: 1.25em; 
+            font-weight: 600; 
+            margin-bottom: 0.3em;
+            color: var(--accent-secondary);
+            letter-spacing: 0.02em;
+            text-transform: none;
+        }
+        
+        .reveal h4 {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--accent-primary);
+            letter-spacing: 0.03em;
+        }
+        
+        .reveal p, .reveal li { 
+            font-size: 0.80em; 
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+        
+        .reveal ul { 
+            margin-left: 0; 
+            list-style: none;
+        }
+        
+        .reveal li { 
+            margin-bottom: 0.5em;
+            padding-left: 1.5em;
+            position: relative;
+        }
+        
+        .reveal li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+        
+        .reveal ul ul li:before {
+            content: "·";
+            font-size: 1.4em;
+            line-height: 1;
+        }
+        
+        .reveal strong {
+            color: var(--accent-secondary);
+            font-weight: 600;
+        }
+        
+        .reveal em {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .reveal blockquote {
+            background: var(--callout-bg);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5em;
+            margin: 1.5em 0;
+            box-shadow: none;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        .slide-number { 
+            font-family: var(--r-heading-font);
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+        
+        /* Paper section headers */
         .reveal .paper-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1em;
-            margin: -1em -2em 1em -2em;
+            background: var(--callout-border);
+            color: var(--bg-primary);
+            padding: 1.5em;
+            margin: -1em -2em 1.5em -2em;
+            border-bottom: 6px solid var(--accent-primary);
+        }
+        
+        body.dark-theme .reveal .paper-header {
+            background: var(--callout-bg);
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-primary);
         }
         
         .reveal .paper-header h2 {
-            color: white;
+            color: inherit;
             margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
         
+        .reveal .paper-header p {
+            margin: 0.5em 0 0 0;
+            opacity: 0.9;
+        }
+        
+        /* Emphasis boxes */
         .reveal .emphasis-box {
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 0.8em;
-            margin: 0.8em 0;
+            background: var(--callout-bg);
+            border: 2px solid var(--callout-border);
+            padding: 1.2em;
+            margin: 1.2em 0;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
         }
         
+        body.dark-theme .reveal .emphasis-box {
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.3);
+        }
+        
+        /* Two column layouts */
         .reveal .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2em;
+            gap: 3em;
+            align-items: start;
         }
         
+        /* Image placeholders */
         .reveal .image-placeholder {
-            background: #e9ecef;
-            border: 2px dashed #adb5bd;
+            background: var(--bg-secondary);
+            border: 2px dashed var(--text-secondary);
             padding: 2em;
             text-align: center;
-            color: #6c757d;
+            color: var(--text-secondary);
             font-style: italic;
+            font-family: var(--r-heading-font);
+            font-size: 0.75em;
+            font-weight: 300;
+        }
+        
+        .reveal img {
+            border: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .reveal img {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
         }
         
         /* Animation frame viewer */
         .frame-viewer {
             position: relative;
             width: 100%;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
         
@@ -73,51 +226,141 @@
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 2px;
         }
         
         .frame-controls {
-            margin-top: 1em;
+            margin-top: 1.5em;
             display: flex;
             align-items: center;
-            gap: 1em;
+            gap: 1.5em;
+        }
+        
+        .frame-controls button {
+            font-family: var(--r-heading-font);
+            font-weight: 600;
+            font-size: 0.7em;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: none;
+            padding: 0.7em 1.5em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .frame-controls button:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
         }
         
         .frame-slider {
             flex: 1;
-            height: 6px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: var(--bg-secondary);
+            outline: none;
+            border-radius: 2px;
+        }
+        
+        .frame-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-primary);
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+        
+        .frame-slider::-webkit-slider-thumb:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.2);
+        }
+        
+        .frame-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            background: var(--accent-primary);
+            cursor: pointer;
+            border-radius: 50%;
+            border: none;
         }
         
         .frame-info {
+            font-family: var(--r-heading-font);
             font-size: 0.7em;
-            color: #666;
+            font-weight: 600;
+            color: var(--text-secondary);
             min-width: 100px;
+            letter-spacing: 0.05em;
         }
         
+        /* Scenario tabs */
         .scenario-tabs {
             display: flex;
-            gap: 0.5em;
-            margin-bottom: 1em;
+            gap: 0.6em;
+            margin-bottom: 1.5em;
             flex-wrap: wrap;
+            justify-content: center;
         }
         
         .scenario-tab {
-            padding: 0.5em 1em;
-            background: #e9ecef;
-            border: none;
+            font-family: var(--r-heading-font);
+            padding: 0.6em 1.2em;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid transparent;
             cursor: pointer;
-            font-size: 0.7em;
-            border-radius: 4px;
+            font-size: 0.65em;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 0;
             transition: all 0.2s;
         }
         
         .scenario-tab:hover {
-            background: #dee2e6;
+            background: var(--callout-bg);
+            border-color: var(--accent-primary);
         }
         
         .scenario-tab.active {
-            background: #667eea;
-            color: white;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            font-weight: 600;
+            border-color: var(--accent-primary);
         }
+        
+        /* Theme toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 80px;
+            z-index: 100;
+            font-family: var(--r-heading-font);
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 0.7em 1.2em;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Utility classes */
+        .reveal .text-small { font-size: 0.7em; }
+        .reveal .text-muted { color: var(--text-secondary); }
+        .reveal .text-accent { color: var(--accent-primary); }
     </style>
 </head>
 <body>
@@ -127,8 +370,8 @@
             <!-- Title Slide -->
             <section>
                 <h1>Three Essays on Inclusive Sustainability for Complex Social Systems</h1>
-                <p style="font-size: 0.9em; margin-top: 2em;">Jonathan Philpot</p>
-                <p style="font-size: 0.7em; margin-top: 1em;">Dissertation Defense<br>Pardee RAND Graduate School</p>
+                <p style="font-size: 0.9em; margin-top: 2em;">Jonathan Lamb</p>
+                <p style="font-size: 0.7em; margin-top: 1em;">Dissertation Defense<br>RAND School of Public Policy</p>
                 <p style="font-size: 0.6em; margin-top: 2em;">Committee: Steven W. Popper (Chair), Aaron Strong, Tim Gulden, Eric Lonsdorf</p>
             </section>
 
@@ -136,7 +379,9 @@
             <section>
                 <section>
                     <h2>Inclusive Sustainability</h2>
-                    <div class="image-placeholder">[Definition from research proposal]</div>
+                    <p style="font-size: 1.1em; margin-top: 2em; text-align: center;">
+                        Inclusive urban sustainability ensures equitable well-being within and between generations.
+                    </p>
                 </section>
 
                 <section>
@@ -205,19 +450,33 @@
                 <section>
                     <h3>Conceptual Approach</h3>
                     <div class="image-placeholder">[Conceptual diagram]</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5em; margin-top: 1em;">
+                        <div>
+                            <h4 style="font-size: 0.85em; color: var(--accent-primary);">Green Space</h4>
+                            <p style="font-size: 0.7em;">Tree canopy coverage</p>
+                            <p style="font-size: 0.65em; font-style: italic;">1m resolution landcover raster</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.85em; color: var(--accent-primary);">Economic Capital</h4>
+                            <p style="font-size: 0.7em;">Establishments, jobs, diversity</p>
+                            <p style="font-size: 0.65em; font-style: italic;">OpenStreetMap POI for economic establishments</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.85em; color: var(--accent-primary);">Third Places</h4>
+                            <p style="font-size: 0.7em;">Social infrastructure</p>
+                            <p style="font-size: 0.65em; font-style: italic;">Third places definition</p>
+                        </div>
+                    </div>
                 </section>
 
                 <section>
                     <h3>Empirical Strategy</h3>
-                    <ul>
-                        <li>Minneapolis-St. Paul metropolitan area</li>
-                        <li>Three focal amenity categories:</li>
-                        <ul>
-                            <li>Green space (tree canopy)</li>
-                            <li>Economic capital (establishments, jobs, diversity)</li>
-                            <li>Third places (social infrastructure)</li>
-                        </ul>
+                    <p style="font-size: 0.8em;">Minneapolis-St. Paul metropolitan area</p>
+                    <ul style="font-size: 0.75em;">
                         <li>Spatial hedonic model with interactions</li>
+                        <li>~50,000 transactions</li>
+                        <li>School attendance area fixed effects</li>
+                        <li>Controls: structural characteristics, accessibility, demographics</li>
                     </ul>
                     <div class="image-placeholder">[Map showing study area]</div>
                 </section>
@@ -249,7 +508,53 @@
                     <div class="image-placeholder">[Map visualizing marginal predicted effects of all three components]</div>
                     <p style="font-size: 0.8em;">Shows importance of holistic picture and strategic place-based investment</p>
                 </section>
-            </section>
+
+                <!-- Optional Detail Slides -->
+                <section>
+                    <h3>UES Coverage: Tree Canopy</h3>
+                    <img src="images/canopy_coverage.png" alt="Tree canopy coverage across study area" style="max-width: 85%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>UES Coverage: Economic Capital</h3>
+                    <img src="images/economic_coverage.png" alt="Economic establishment coverage" style="max-width: 85%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>UES Coverage: Third Places</h3>
+                    <img src="images/third_coverage.png" alt="Third place coverage across study area" style="max-width: 85%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Joint Coverage > 50th Percentile</h3>
+                    <img src="images/spatialP50.png" alt="Joint amenity coverage above median" style="max-width: 85%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Market Characteristics by Location</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4 style="font-size: 0.9em;">Sale Price Percentile</h4>
+                            <img src="images/salePricePct.png" alt="Sale price percentile by location" style="max-width: 100%; height: auto;">
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.9em;">Transactions Per Capita</h4>
+                            <img src="images/nPerCapita.png" alt="Transactions per capita" style="max-width: 100%; height: auto;">
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Main Interaction Specifications</h3>
+                    <div class="image-placeholder">[Main interaction model specifications]</div>
+                    <ul style="font-size: 0.75em;">
+                        <li>Interaction terms between amenity types</li>
+                        <li>Test complementarity vs substitutability</li>
+                        <li>Spatially varying coefficients</li>
+                    </ul>
+                </section>
+
+                <section>
 
             <!-- Paper 2: Ground Rules -->
             <section>
@@ -305,29 +610,33 @@
                     <h3>ECLIPSE Model Overview</h3>
                     <p style="font-size: 0.8em;"><em>Endogenous City Landuse and Integrated Policy Sandbox Engine</em></p>
                     <ul>
-                        <li>Agent-based urban economic model</li>
-                        <li>Self-organizing city with heterogeneous households</li>
-                        <li>Endogenous urban form and social networks</li>
+                        <li>Agent-based urban economic model extending Alonso-Muth-Mills tradition</li>
+                        <li>Open city with dynamic heterogeneous households and housing stock</li>
+                        <li>Three endogenous UES:</li>
+                        <ul style="font-size: 0.9em;">
+                            <li>Green space (private market)</li>
+                            <li>Social ties (social, non-market)</li>
+                            <li>Public services (public, non-market)</li>
+                        </ul>
                         <li>Policy experimentation platform</li>
                     </ul>
                 </section>
 
                 <section>
                     <h3>Model Components: Space</h3>
-                    <div class="two-column">
+                    <div class="two-column" style="align-items: center;">
                         <div>
                             <div class="image-placeholder">[Graph image showing parcel network]</div>
                         </div>
                         <div>
-                            <ul style="font-size: 0.75em;">
-                                <li>Graph of unit parcels (grid)</li>
-                                <li>Single CBD</li>
-                                <li>Egocentric neighborhoods (3 edges)</li>
-                                <li>Parcel design: green space, density, floors</li>
-                            </ul>
-                            <div class="image-placeholder">[Parcel design diagram]</div>
+                            <div class="image-placeholder">[Parcel design diagram - parcel_design_diagram.pdf]</div>
                         </div>
                     </div>
+                    <ul style="font-size: 0.7em; margin-top: 1em;">
+                        <li>Graph of unit parcels (grid) with single CBD</li>
+                        <li>Egocentric neighborhoods (3 edges)</li>
+                        <li>Parcel design: green space, density, floors</li>
+                    </ul>
                 </section>
 
                 <section>
@@ -356,7 +665,7 @@
 
                 <section>
                     <h3>Model Sequence</h3>
-                    <div class="image-placeholder">[Sequence diagram]</div>
+                    <div class="image-placeholder">[Sequence diagram - model_sequence_diagram.pdf]</div>
                     <ol style="font-size: 0.7em;">
                         <li>Wages evolve</li>
                         <li>Tax assessments update</li>
@@ -380,14 +689,7 @@
 
                 <section>
                     <h3>Experimental Design</h3>
-                    <div class="image-placeholder">[Table showing 12 scenarios]</div>
-                    <ul style="font-size: 0.75em;">
-                        <li>Classic baseline (property tax)</li>
-                        <li>LVT variations (low/medium/high)</li>
-                        <li>PES variations (low/medium/high)</li>
-                        <li>Combined LVT+PES</li>
-                        <li>50 time periods (t=10-50 analyzed)</li>
-                    </ul>
+                    <div class="image-placeholder">[Table showing 12 scenarios - scenarios_table.pdf]</div>
                 </section>
 
                 <section data-auto-animate>
@@ -421,13 +723,100 @@
 
                 <section>
                     <h3>Key Findings</h3>
-                    <div class="image-placeholder">[Summary comparison table or plots]</div>
+                    <div class="image-placeholder">[Summary comparison - paper2_results_summary.pdf]</div>
                     <ul style="font-size: 0.75em;">
                         <li>LVT amplifies utility gap and segregation with concentrated amenities</li>
                         <li>PES successfully preserves green space but with equity implications</li>
                         <li>Combined policies show interaction effects</li>
                         <li>Social networks create path dependencies and lock-in</li>
                     </ul>
+                </section>
+
+                <!-- Results Details Section -->
+                <section>
+                    <h3>Results: Population & Growth Dynamics</h3>
+                    <img src="images/population.pdf" alt="Population growth across scenarios" style="max-width: 85%; height: auto; margin-bottom: 1em;">
+                    <img src="images/paper2_descriptive_statistics.png" alt="Descriptive statistics table" style="max-width: 95%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Results: Spatial Patterns</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li>Classic baseline: monocentric gradient with sprawling periphery</li>
+                        <li>LVT scenarios: intensified core, sharper density gradients</li>
+                        <li>LVT increases density but everywhere—appears as sprawl</li>
+                        <li>PES scenarios: green space clusters in high-amenity areas</li>
+                        <li>PES unexpectedly reduces total developed area</li>
+                        <li>Geographic sorting by income increases under all interventions</li>
+                        <li>Social networks amplify clustering beyond economic sorting</li>
+                        <li>Multiple gentrification dynamics emerge</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Utility Flow Across Scenarios</h3>
+                    <img src="images/utilityFlow.pdf" alt="Utility distribution and flow" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Displacement Patterns</h3>
+                    <img src="images/displacement.pdf" alt="Household displacement dynamics" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Segregation Dynamics</h3>
+                    <img src="images/segregationPlot.png" alt="Income segregation patterns" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Network Segregation</h3>
+                    <img src="images/segregationNet.pdf" alt="Social network segregation" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Embodied Emissions</h3>
+                    <img src="images/emissions.pdf" alt="Carbon emissions from construction" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Social Capital Evolution</h3>
+                    <img src="images/capital.pdf" alt="Social capital accumulation" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Green Space Permeability</h3>
+                    <img src="images/permeability.pdf" alt="Permeability across scenarios" style="max-width: 90%; height: auto;">
+                </section>
+
+                <section>
+                    <h3>Critical Finding: LVT & Concentrated Amenities</h3>
+                    <div class="emphasis-box">
+                        Most prominent result: LVT amplifies utility gap, segregation, and displacement in the presence of highly concentrated amenities
+                    </div>
+                    <ul style="font-size: 0.75em;">
+                        <li>Land values spike near amenities → higher LVT burden</li>
+                        <li>Low-income households outbid from desirable locations</li>
+                        <li>Creates "winners" and "losers" geography</li>
+                        <li>Challenges optimistic LVT literature assumptions</li>
+                        <li>Suggests need for compensatory mechanisms</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Scenario Outcomes: Parallel Coordinates</h3>
+                    <img src="images/para.pdf" alt="Parallel coordinates showing scenario tradeoffs" style="max-width: 90%; height: auto;">
+                    <p style="font-size: 0.7em;">Comparing Classic baseline across multiple dimensions</p>
+                </section>
+
+                <section>
+                    <h3>LVT Scenarios: Policy Tradeoffs</h3>
+                    <img src="images/paraLVT.pdf" alt="Parallel coordinates for LVT scenarios" style="max-width: 90%; height: auto;">
+                    <p style="font-size: 0.7em;">Intensification vs. equity tensions across LVT levels</p>
+                </section>
+
+                <section>
+                    <h3>Gentrification Dynamics</h3>
+                    <img src="images/gentrification.pdf" alt="Gentrification patterns under policy scenarios" style="max-width: 90%; height: auto;">
                 </section>
             </section>
 
@@ -482,8 +871,207 @@
                 </section>
 
                 <section>
-                    <h3>Computational Backcasting Framework</h3>
-                    <div class="image-placeholder">[Causal network diagram]</div>
+                    <h3>Retroanalytic Strategies: Summary Framework</h3>
+                    <table style="font-size: 0.55em; width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--accent-secondary); color: var(--bg-primary);">
+                                <th style="padding: 0.8em; text-align: left; border: 1px solid var(--text-secondary);">Strategy</th>
+                                <th style="padding: 0.8em; text-align: left; border: 1px solid var(--text-secondary);">Description</th>
+                                <th style="padding: 0.8em; text-align: left; border: 1px solid var(--text-secondary);">Examples Across Domains</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Constraint Types</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Physical, logical, temporal boundaries limiting possibility space</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Chess legality; chemical valence; phylogenetic parsimony</td>
+                            </tr>
+                            <tr style="background: var(--bg-secondary);">
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Substitutes & Equifinality</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Multiple pathways to same endpoint; functional equivalence</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Retrosynthetic routes; convergent evolution; institutional alternatives</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Enablement</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Prior conditions that make future states possible; preadaptation</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Precursor molecules; exaptation (feathers→flight); institutional bricolage</td>
+                            </tr>
+                            <tr style="background: var(--bg-secondary);">
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Protection</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Temporarily constraining possibilities to preserve/enable specific outcomes</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Protecting groups (chemistry); niche protection; strategic reserves</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Metaconstraints</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Higher-order rules structuring search; heuristics for pruning</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Retrons; conserved domains; critical junctures; "fingerprints"</td>
+                            </tr>
+                            <tr style="background: var(--bg-secondary);">
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Stratification</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Hierarchical decomposition into layers; macro-operators</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Functional groups; nested scales; institutional levels</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Speculative Intermediates</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Hypothetical states inferred abductively; unobserved events</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Novel reactions; ancestral sequences; counterfactual histories</td>
+                            </tr>
+                            <tr style="background: var(--bg-secondary);">
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);"><strong>Motifs & Patterns</strong></td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Recurring configurations signaling important mechanisms</td>
+                                <td style="padding: 0.6em; border: 1px solid var(--text-secondary);">Tactical patterns (chess); functional complexes; cultural linkages</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Implications for Formal Retroanalytic Policy Planning</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li><strong>Search boundaries of inverse constraint space</strong> vs. forward exploration of functional relationships</li>
+                        <li><strong>Embrace pluralism:</strong> Identify common actions across contested futures—zones of agreement that enable desired possibilities</li>
+                        <li><strong>"Designing for potential":</strong> Create option value and opportunity to make good choices</li>
+                        <li><strong>Participatory futures (double meaning):</strong>
+                            <ul style="font-size: 0.95em;">
+                                <li>Scale and diversify input in participative planning</li>
+                                <li>Center us as participants in guiding the adjacent possible</li>
+                            </ul>
+                        </li>
+                        <li><strong>Requisite system capabilities:</strong>
+                            <ul style="font-size: 0.95em;">
+                                <li>Hierarchical decomposition into macrofunctional wholes and building blocks</li>
+                                <li>Integration of institutional-cultural, technological, environmental domains</li>
+                                <li>Combine manual and automated generation of speculative intermediates</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Research Agenda</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li><strong>Operationalization:</strong> Algorithmic 'grammar' for configurational state space
+                            <ul style="font-size: 0.95em;">
+                                <li>Brian Arthur's combinatorial evolution, Boolean networks</li>
+                                <li>Knowledge units that can be logically assembled</li>
+                            </ul>
+                        </li>
+                        <li><strong>Technical machinery:</strong> Algorithmic generation and analysis
+                            <ul style="font-size: 0.95em;">
+                                <li>Viability theory, genetic programming, AI/ML methods</li>
+                            </ul>
+                        </li>
+                        <li><strong>Proof of concepts:</strong> Historical analysis, documented backcasting exercises</li>
+                        <li><strong>Stakeholder engagement:</strong> Interface for "triple loop learning," power dynamics, expanding worldviews</li>
+                        <li><strong>Integration:</strong> Connect to existing backcasting, transition management, DMDU frameworks</li>
+                        <li><strong>Adjacent applications:</strong> Bridge nomothetic explanations and historical particularism in anthropology, history, institutionalism</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Key Findings</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li>Retroanalytic methods across domains share common strategies</li>
+                        <li>These strategies make problem-solving tractable while preserving discovery</li>
+                        <li>Cross-domain synthesis reveals transferable concepts for social transformation</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Finding 1: Shared Retroanalytic Strategies</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4 style="font-size: 0.9em;">Common Elements</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li>Stratification of state spaces</li>
+                                <li>Recognition of motifs/patterns</li>
+                                <li>Substitution and equifinality</li>
+                                <li>Protection mechanisms</li>
+                                <li>Speculative intermediates</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.9em;">Domains Examined</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li>Retrosynthetic chemistry</li>
+                                <li>Ancestral sequence reconstruction</li>
+                                <li>Retrograde chess analysis</li>
+                                <li>Process tracing (institutions)</li>
+                                <li>Cultural phylogenetics</li>
+                                <li>AI planning (means-ends)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Finding 2: Managing Combinatorial Explosion</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li><strong>Stratification:</strong> Breaking problems into hierarchical layers</li>
+                        <li><strong>Protecting groups:</strong> Temporarily constraining possibilities to enable progress</li>
+                        <li><strong>Motifs:</strong> Identifying "fingerprints" that signal important mechanisms</li>
+                        <li><strong>Equifinality:</strong> Multiple pathways to same endpoint → strategic flexibility</li>
+                    </ul>
+                    <div class="emphasis-box">
+                        Key insight: Substitutability creates combinatorial explosion initially but enables strategic flexibility and option value preservation
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Finding 3: Validation Across Domains</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li>Different epistemic situations require different validation approaches</li>
+                        <li>Chemistry: Experimental synthesis confirms pathway feasibility</li>
+                        <li>Biology: Statistical inference from phylogenetic models</li>
+                        <li>History: Evidentiary reasoning from causal-process observations</li>
+                        <li>Social transformation: Deliberative quality assurance in "extended peer communities"</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Finding 4: Endogenous Possibility Generation</h3>
+                    <div class="emphasis-box">
+                        Human societies are <strong>creative systems</strong> that endogenously generate their own possibility spaces
+                    </div>
+                    <ul style="font-size: 0.75em;">
+                        <li>Technological innovation creates new capabilities</li>
+                        <li>Institutional change opens new organizational forms</li>
+                        <li>Cultural evolution generates new meanings and values</li>
+                        <li>Kauffman: "unprestatable sets" and "adjacent possibles"</li>
+                        <li>Forward prediction inadequate → backward reasoning necessary</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Finding 5: Preadaptation & Exaptation</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li><strong>Preadaptation:</strong> Features evolved for one purpose enable future transformations</li>
+                        <li><strong>Exaptation:</strong> Repurposing existing capabilities for new ends</li>
+                        <li>Examples: feathers (insulation → flight), lungs (buoyancy → respiration)</li>
+                        <li>Social analog: institutions developed for one purpose enable unforeseen futures</li>
+                        <li>Policy implication: Cultivate latent capacities with option value</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Finding 6: Methodological Gaps</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li>Transitions literature: sophisticated narratives but limited computational methods</li>
+                        <li>DMDU: tests predetermined options, lacks systematic backward pathway generation</li>
+                        <li>Backcasting: emphasizes participation but limited guidance for combinatorial search</li>
+                        <li>None systematically integrate insights from technical retroanalytic domains</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Synthesis: Framework Principles</h3>
+                    <ul style="font-size: 0.75em;">
+                        <li>Formalize social systems as <strong>event networks</strong> rather than state machines</li>
+                        <li>Represent change through conditions, actors, effects (not predetermined transitions)</li>
+                        <li>Enable speculative intermediate generation through abductive reasoning</li>
+                        <li>Focus on near-term actions that <strong>expand possibility spaces</strong></li>
+                        <li>Achieve resolution through <strong>compatibility</strong> across plural visions, not consensus</li>
+                    </ul>
                 </section>
 
                 <section>
@@ -504,9 +1092,11 @@
                     <h2>Concluding Remarks</h2>
                     <blockquote style="font-size: 0.8em; font-style: italic;">
                         "While we cannot know or design the future, we are not passive passengers. 
-                        By looking backwards, the goal becomes designing for potential rather than 
-                        preserving particular pathways—cultivating our collective capacity to recognize, 
-                        protect, and nurture the seeds of desirable futures that already surround us."
+                        By looking backwards, we can begin to design for potential—cultivating our 
+                        collective capacity to recognize, protect, and nurture the seeds of desirable 
+                        futures that already surround us. We will not become Hari Seldon, but we 
+                        might approach challenges more creatively, with broader participation together 
+                        and as participants in what the future holds."
                     </blockquote>
                 </section>
 
@@ -515,7 +1105,7 @@
                     <div style="font-size: 0.75em;">
                         <p><strong>Committee:</strong> Steven W. Popper (Chair), Aaron Strong, Tim Gulden, Eric Lonsdorf</p>
                         <p><strong>Mentors & Advisors:</strong> Rob Lempert, Jonathan Welburn, Angel O'Mahony, Paul Davis, Chris Nelson</p>
-                        <p><strong>Support:</strong> Pardee RAND Graduate School, Progress and Poverty Institute</p>
+                        <p><strong>Support:</strong> RAND School of Public Policy, Progress and Poverty Institute</p>
                         <p><strong>Family:</strong> My wife, who inspired this path, and my children, who give me reason to pursue it</p>
                     </div>
                 </section>
@@ -527,6 +1117,8 @@
 
         </div>
     </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
     <script>
@@ -547,6 +1139,17 @@
         let currentFrame = 10;
         let isPlaying = false;
         let playInterval = null;
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        }
+
+        // Load saved theme
+        if(localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
 
         function loadScenario(scenario) {
             currentScenario = scenario;
