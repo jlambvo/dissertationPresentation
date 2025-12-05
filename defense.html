@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Essays on Inclusive Sustainability for Complex Social Systems</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/white.css">
+    <style>
+        :root {
+            --r-main-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --r-heading-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --r-main-font-size: 32px;
+            --r-heading-color: #2c3e50;
+            --r-main-color: #333;
+            --r-link-color: #2980b9;
+            --r-link-color-hover: #3498db;
+        }
+        
+        .reveal h1 { font-size: 2em; font-weight: 600; margin-bottom: 0.5em; }
+        .reveal h2 { font-size: 1.5em; font-weight: 600; margin-bottom: 0.4em; }
+        .reveal h3 { font-size: 1.2em; font-weight: 600; margin-bottom: 0.3em; }
+        .reveal p, .reveal li { font-size: 0.85em; line-height: 1.4; }
+        .reveal ul { margin-left: 0; }
+        .reveal li { margin-bottom: 0.4em; }
+        
+        .slide-number { font-size: 14px; }
+        
+        .reveal .paper-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1em;
+            margin: -1em -2em 1em -2em;
+        }
+        
+        .reveal .paper-header h2 {
+            color: white;
+            margin: 0;
+        }
+        
+        .reveal .emphasis-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 0.8em;
+            margin: 0.8em 0;
+        }
+        
+        .reveal .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+        }
+        
+        .reveal .image-placeholder {
+            background: #e9ecef;
+            border: 2px dashed #adb5bd;
+            padding: 2em;
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Animation frame viewer */
+        .frame-viewer {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .frame-viewer img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .frame-controls {
+            margin-top: 1em;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+        
+        .frame-slider {
+            flex: 1;
+            height: 6px;
+        }
+        
+        .frame-info {
+            font-size: 0.7em;
+            color: #666;
+            min-width: 100px;
+        }
+        
+        .scenario-tabs {
+            display: flex;
+            gap: 0.5em;
+            margin-bottom: 1em;
+            flex-wrap: wrap;
+        }
+        
+        .scenario-tab {
+            padding: 0.5em 1em;
+            background: #e9ecef;
+            border: none;
+            cursor: pointer;
+            font-size: 0.7em;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .scenario-tab:hover {
+            background: #dee2e6;
+        }
+        
+        .scenario-tab.active {
+            background: #667eea;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Title Slide -->
+            <section>
+                <h1>Three Essays on Inclusive Sustainability for Complex Social Systems</h1>
+                <p style="font-size: 0.9em; margin-top: 2em;">Jonathan Philpot</p>
+                <p style="font-size: 0.7em; margin-top: 1em;">Dissertation Defense<br>Pardee RAND Graduate School</p>
+                <p style="font-size: 0.6em; margin-top: 2em;">Committee: Steven W. Popper (Chair), Aaron Strong, Tim Gulden, Eric Lonsdorf</p>
+            </section>
+
+            <!-- Introduction -->
+            <section>
+                <section>
+                    <h2>Inclusive Sustainability</h2>
+                    <div class="image-placeholder">[Definition from research proposal]</div>
+                </section>
+
+                <section>
+                    <h2>Overarching Aims</h2>
+                    <div class="image-placeholder">[Visual of three aims]</div>
+                </section>
+
+                <section>
+                    <h3>Aim 1: Holistic Well-Being</h3>
+                    <p>Contribute to quantifying more holistic, integrated understanding of well-being</p>
+                    <ul>
+                        <li>How aspects of human habitat contribute to well-being</li>
+                        <li>Trade-offs between different dimensions</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Aim 2: Policy as Design Tool</h3>
+                    <p>Probe paradox of policy as purposeful design tool in complex, self-organizing systems</p>
+                    <ul>
+                        <li>Embodied in compact cities and smart growth debate</li>
+                        <li>"Compact City Fallacy" (Neuman, 2005): form as result of behavior, not vice versa</li>
+                        <li>Integration of "top-down" and "bottom-up" mechanisms</li>
+                        <li>Moroni: "patterning" vs "framework" instruments</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Aim 3: Diverse Futures</h3>
+                    <p>Explore more diverse visions of inclusive and sustainable futures</p>
+                </section>
+
+                <section>
+                    <h2>Structure Across Three Papers</h2>
+                    <div class="image-placeholder">[Grid from research proposal showing papers across aims/scales/modes]</div>
+                </section>
+            </section>
+
+            <!-- Paper 1: Complementarities -->
+            <section>
+                <section>
+                    <div class="paper-header">
+                        <h2>Paper 1: Urban Amenity Complementarities</h2>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Motivation</h3>
+                    <ul>
+                        <li>Need integrated Ecosystem Services → Urban ES → Inclusive Wealth framework</li>
+                        <li>Integrated treatment of "natural" and "artificial"</li>
+                        <li><strong>Research Question:</strong> Are there complementarities?</li>
+                        <li>How amenities compose human habitat</li>
+                        <li>Relates to substitution across welfare dimensions</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Context: ES Hedonics</h3>
+                    <ul>
+                        <li>Extensively studied but almost no complementarity analysis</li>
+                        <li>Reference: D'Albouy "unlocking amenities" (crime and parks)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Conceptual Approach</h3>
+                    <div class="image-placeholder">[Conceptual diagram]</div>
+                </section>
+
+                <section>
+                    <h3>Empirical Strategy</h3>
+                    <ul>
+                        <li>Minneapolis-St. Paul metropolitan area</li>
+                        <li>Three focal amenity categories:</li>
+                        <ul>
+                            <li>Green space (tree canopy)</li>
+                            <li>Economic capital (establishments, jobs, diversity)</li>
+                            <li>Third places (social infrastructure)</li>
+                        </ul>
+                        <li>Spatial hedonic model with interactions</li>
+                    </ul>
+                    <div class="image-placeholder">[Map showing study area]</div>
+                </section>
+
+                <section>
+                    <h3>Key Results: Interactions</h3>
+                    <div class="image-placeholder">[Interaction effects table]</div>
+                    <ul style="font-size: 0.75em;">
+                        <li>All economic capital proxies significant and positive (except # jobs)</li>
+                        <li>Mobility shares positive interaction with third places</li>
+                        <li>No clear relationship between # jobs/diversity and third places</li>
+                        <li>Generally no canopy-economic interaction, except positive with # jobs</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Marginal Effects</h3>
+                    <div class="image-placeholder">[Marginal effects table]</div>
+                    <ul style="font-size: 0.75em;">
+                        <li>Mean effects: $160/establishment, $573/third place, $1,065/1% canopy</li>
+                        <li>Substantial heterogeneity across locations</li>
+                        <li>Median: similar for economic and third places, $345 for canopy</li>
+                        <li>Top quartile third place effects: over $3,500</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Geographic Context</h3>
+                    <div class="image-placeholder">[Map visualizing marginal predicted effects of all three components]</div>
+                    <p style="font-size: 0.8em;">Shows importance of holistic picture and strategic place-based investment</p>
+                </section>
+            </section>
+
+            <!-- Paper 2: Ground Rules -->
+            <section>
+                <section>
+                    <div class="paper-header">
+                        <h2>Paper 2: Ground Rules</h2>
+                        <p style="font-size: 0.8em; margin-top: 0.5em;">Incentive-Based Mechanisms for Sustainable Urban Development</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>The Planner's Triangle</h3>
+                    <div class="image-placeholder">[Campbell's triangle diagram]</div>
+                    <p>Balancing economic growth, environmental impact, and social justice</p>
+                    <p style="font-size: 0.8em; font-style: italic;">Repositioned: livability/well-being, environmental impact, equity</p>
+                </section>
+
+                <section>
+                    <h3>Focus: Urban Form/Morphology</h3>
+                    <ul>
+                        <li>Kropf (2018), Skrimizea et al. (2019): built and social structure in co-evolution</li>
+                        <li>Interface between sides of planner's triangle</li>
+                        <li>Framework vs. patterning instruments (Moroni et al.)</li>
+                    </ul>
+                    <div class="emphasis-box">
+                        <strong>Research Question:</strong> To what extent can incentive-based mechanisms enable sustainable urban development while maintaining social equity?
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Policy Instruments Examined</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>Land Value Taxation (LVT)</h4>
+                            <ul style="font-size: 0.75em;">
+                                <li>Tax land, not improvements</li>
+                                <li>Encourage development</li>
+                                <li>Capture unearned increment</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Payments for Ecosystem Services (PES)</h4>
+                            <ul style="font-size: 0.75em;">
+                                <li>Compensate green space provision</li>
+                                <li>Align private/social incentives</li>
+                                <li>Market-based conservation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>ECLIPSE Model Overview</h3>
+                    <p style="font-size: 0.8em;"><em>Endogenous City Landuse and Integrated Policy Sandbox Engine</em></p>
+                    <ul>
+                        <li>Agent-based urban economic model</li>
+                        <li>Self-organizing city with heterogeneous households</li>
+                        <li>Endogenous urban form and social networks</li>
+                        <li>Policy experimentation platform</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Model Components: Space</h3>
+                    <div class="two-column">
+                        <div>
+                            <div class="image-placeholder">[Graph image showing parcel network]</div>
+                        </div>
+                        <div>
+                            <ul style="font-size: 0.75em;">
+                                <li>Graph of unit parcels (grid)</li>
+                                <li>Single CBD</li>
+                                <li>Egocentric neighborhoods (3 edges)</li>
+                                <li>Parcel design: green space, density, floors</li>
+                            </ul>
+                            <div class="image-placeholder">[Parcel design diagram]</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Model Components: Agents</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4 style="font-size: 0.9em;">Landlords</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li>Independent, absentee</li>
+                                <li>Collect rent</li>
+                                <li>Pay property taxes</li>
+                                <li>Redevelopment decisions</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 0.9em;">Households</h4>
+                            <ul style="font-size: 0.7em;">
+                                <li>Infinite-lived renters</li>
+                                <li>Vary by income, social network</li>
+                                <li>Value: CBD proximity, green space, social capital</li>
+                                <li>Can enter/leave/move</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Model Sequence</h3>
+                    <div class="image-placeholder">[Sequence diagram]</div>
+                    <ol style="font-size: 0.7em;">
+                        <li>Wages evolve</li>
+                        <li>Tax assessments update</li>
+                        <li>Landlords decide: keep or redevelop</li>
+                        <li>Households compete for units (M k-price auctions)</li>
+                        <li>Iterate until matched or no vacancies</li>
+                        <li>Social mixing: ties form/break by distance, age, count</li>
+                        <li>Taxes and transfers applied</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>Novel Mechanisms</h3>
+                    <ul>
+                        <li><strong>M k-price auctions:</strong> Multi-unit iterative matching</li>
+                        <li><strong>Endogenous social networks:</strong> First model embedding evolving networks in urban growth</li>
+                        <li><strong>Dynamic housing stock:</strong> Parcels can be redeveloped</li>
+                        <li><strong>Open city + heterogeneity:</strong> Analyze both population change and welfare</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Experimental Design</h3>
+                    <div class="image-placeholder">[Table showing 12 scenarios]</div>
+                    <ul style="font-size: 0.75em;">
+                        <li>Classic baseline (property tax)</li>
+                        <li>LVT variations (low/medium/high)</li>
+                        <li>PES variations (low/medium/high)</li>
+                        <li>Combined LVT+PES</li>
+                        <li>50 time periods (t=10-50 analyzed)</li>
+                    </ul>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Urban Growth Dynamics</h3>
+                    <p style="font-size: 0.8em;">Spatial-temporal evolution across policy scenarios</p>
+                    
+                    <div class="scenario-tabs">
+                        <button class="scenario-tab active" onclick="loadScenario('Classic')">Classic</button>
+                        <button class="scenario-tab" onclick="loadScenario('LVT_Low')">LVT Low</button>
+                        <button class="scenario-tab" onclick="loadScenario('LVT_Med')">LVT Med</button>
+                        <button class="scenario-tab" onclick="loadScenario('LVT_High')">LVT High</button>
+                        <button class="scenario-tab" onclick="loadScenario('PES_Low')">PES Low</button>
+                        <button class="scenario-tab" onclick="loadScenario('PES_Med')">PES Med</button>
+                        <button class="scenario-tab" onclick="loadScenario('PES_High')">PES High</button>
+                        <button class="scenario-tab" onclick="loadScenario('Both_Low')">Both Low</button>
+                        <button class="scenario-tab" onclick="loadScenario('Both_Med')">Both Med</button>
+                        <button class="scenario-tab" onclick="loadScenario('Both_High')">Both High</button>
+                    </div>
+
+                    <div class="frame-viewer">
+                        <img id="animFrame" src="frames/Classic/frame_010.png" alt="Urban growth frame">
+                        <div class="frame-controls">
+                            <button onclick="togglePlay()">▶ Play</button>
+                            <input type="range" class="frame-slider" id="frameSlider" 
+                                   min="10" max="50" value="10" step="1" 
+                                   oninput="updateFrame(this.value)">
+                            <span class="frame-info" id="frameInfo">t = 10</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Key Findings</h3>
+                    <div class="image-placeholder">[Summary comparison table or plots]</div>
+                    <ul style="font-size: 0.75em;">
+                        <li>LVT amplifies utility gap and segregation with concentrated amenities</li>
+                        <li>PES successfully preserves green space but with equity implications</li>
+                        <li>Combined policies show interaction effects</li>
+                        <li>Social networks create path dependencies and lock-in</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Paper 3: Participatory Futures -->
+            <section>
+                <section>
+                    <div class="paper-header">
+                        <h2>Paper 3: Participatory Futures</h2>
+                        <p style="font-size: 0.8em; margin-top: 0.5em;">Computational Backcasting for Social Transformation</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Motivation</h3>
+                    <ul>
+                        <li>Transition to long-term system transformation</li>
+                        <li>Socio-technical systems impose unique uncertainty</li>
+                        <li>Urban communities to global polycrisis</li>
+                        <li>Challenge: systems as <em>open-ended</em></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Approach</h3>
+                    <ul>
+                        <li>Review and synthesis of eight retroanalytic methods</li>
+                        <li>From diverse domains (chemistry, biology, AI, anthropology)</li>
+                        <li>What makes retroanalytic perspective useful?</li>
+                        <li>Characteristics of problem spaces</li>
+                        <li>Ontological framing strategies</li>
+                        <li>Navigation and reconstruction techniques</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Retroanalytic Methods Examined</h3>
+                    <div class="image-placeholder">[Comparison table of 8 methods]</div>
+                </section>
+
+                <section>
+                    <h3>Key Insight: Adjacent Possible</h3>
+                    <p>Human systems endogenously generate possibility spaces</p>
+                    <ul style="font-size: 0.8em;">
+                        <li>Technological innovation</li>
+                        <li>Institutional change</li>
+                        <li>Cultural evolution</li>
+                        <li>Kauffman: "unprestatable sets"</li>
+                    </ul>
+                    <div class="emphasis-box">
+                        Forward prediction inadequate → Backward reasoning required
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Computational Backcasting Framework</h3>
+                    <div class="image-placeholder">[Causal network diagram]</div>
+                </section>
+
+                <section>
+                    <h3>Contributions</h3>
+                    <ul>
+                        <li>Guiding scaffold for qualitative pathway conception</li>
+                        <li>Foundations for formalized computational backcasting</li>
+                        <li>Enhance strategy generation for RDM, DAPP, STS methods</li>
+                        <li>Augment participative planning (local to international)</li>
+                        <li>Bridge nomothetic explanations and historical particularism</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Conclusion -->
+            <section>
+                <section>
+                    <h2>Concluding Remarks</h2>
+                    <blockquote style="font-size: 0.8em; font-style: italic;">
+                        "While we cannot know or design the future, we are not passive passengers. 
+                        By looking backwards, the goal becomes designing for potential rather than 
+                        preserving particular pathways—cultivating our collective capacity to recognize, 
+                        protect, and nurture the seeds of desirable futures that already surround us."
+                    </blockquote>
+                </section>
+
+                <section>
+                    <h2>Acknowledgments</h2>
+                    <div style="font-size: 0.75em;">
+                        <p><strong>Committee:</strong> Steven W. Popper (Chair), Aaron Strong, Tim Gulden, Eric Lonsdorf</p>
+                        <p><strong>Mentors & Advisors:</strong> Rob Lempert, Jonathan Welburn, Angel O'Mahony, Paul Davis, Chris Nelson</p>
+                        <p><strong>Support:</strong> Pardee RAND Graduate School, Progress and Poverty Institute</p>
+                        <p><strong>Family:</strong> My wife, who inspired this path, and my children, who give me reason to pursue it</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h1>Questions?</h1>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'slide',
+            width: 1200,
+            height: 800,
+            margin: 0.1,
+            controls: true,
+            progress: true,
+            center: true
+        });
+
+        // Frame animation system
+        let currentScenario = 'Classic';
+        let currentFrame = 10;
+        let isPlaying = false;
+        let playInterval = null;
+
+        function loadScenario(scenario) {
+            currentScenario = scenario;
+            currentFrame = 10;
+            document.getElementById('frameSlider').value = 10;
+            updateFrame(10);
+            
+            // Update active tab
+            document.querySelectorAll('.scenario-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if(tab.textContent.replace(/\s/g, '_') === scenario) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        function updateFrame(frameNum) {
+            currentFrame = parseInt(frameNum);
+            const paddedFrame = String(frameNum).padStart(3, '0');
+            document.getElementById('animFrame').src = `frames/${currentScenario}/frame_${paddedFrame}.png`;
+            document.getElementById('frameInfo').textContent = `t = ${frameNum}`;
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            const btn = event.target;
+            
+            if(isPlaying) {
+                btn.textContent = '⏸ Pause';
+                playInterval = setInterval(() => {
+                    currentFrame++;
+                    if(currentFrame > 50) currentFrame = 10;
+                    document.getElementById('frameSlider').value = currentFrame;
+                    updateFrame(currentFrame);
+                }, 200); // 200ms per frame = 5fps
+            } else {
+                btn.textContent = '▶ Play';
+                clearInterval(playInterval);
+            }
+        }
+    </script>
+</body>
+</html>
