@@ -208,10 +208,35 @@
         .reveal img {
             border: none;
             box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            max-height: 70vh;
+            object-fit: contain;
         }
         
         body.dark-theme .reveal img {
             box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        }
+        
+        /* Allow scrolling for tall content */
+        .reveal .slides section {
+            overflow-y: auto;
+            max-height: 100vh;
+        }
+        
+        .reveal .slides section::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .reveal .slides section::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        
+        .reveal .slides section::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+        
+        .reveal .slides section::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
         }
         
         /* Animation frame viewer */
@@ -553,8 +578,7 @@
                         <li>Spatially varying coefficients</li>
                     </ul>
                 </section>
-
-                <section>
+            </section>
 
             <!-- Paper 2: Ground Rules -->
             <section>
@@ -665,7 +689,7 @@
 
                 <section>
                     <h3>Model Sequence</h3>
-                    <img src="images/model_sequence_diagram.pdf" alt="Model sequence diagram" style="max-width: 85%; height: auto;">
+                    <img src="images/model_sequence_diagram.png" alt="Model sequence diagram" style="max-width: 85%; height: auto;">
                     <ol style="font-size: 0.7em;">
                         <li>Wages evolve</li>
                         <li>Tax assessments update</li>
@@ -689,7 +713,7 @@
 
                 <section>
                     <h3>Experimental Design</h3>
-                    <img src="images/scenarios_table.pdf" alt="Table showing 12 scenarios" style="max-width: 90%; height: auto;">
+                    <img src="images/scenarios_table.png" alt="Table showing 12 scenarios" style="max-width: 90%; height: auto;">
                 </section>
 
                 <section data-auto-animate>
@@ -710,7 +734,7 @@
                     </div>
 
                     <div class="frame-viewer">
-                        <img id="animFrame" src="frames/Classic/frame_010.png" alt="Urban growth frame">
+                        <img id="animFrame" src="frames/PES_50__/frame_010.png" alt="Urban growth frame">
                         <div class="frame-controls">
                             <button onclick="togglePlay()">▶ Play</button>
                             <input type="range" class="frame-slider" id="frameSlider" 
@@ -1131,11 +1155,13 @@
             margin: 0.1,
             controls: true,
             progress: true,
-            center: true
+            center: false,
+            overview: true,
+            navigationMode: 'linear'
         });
 
         // Frame animation system
-        let currentScenario = 'Classic';
+        let currentScenario = 'PES_50__';
         let currentFrame = 10;
         let isPlaying = false;
         let playInterval = null;
